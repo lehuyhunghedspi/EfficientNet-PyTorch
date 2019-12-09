@@ -198,7 +198,7 @@ class EfficientNet(nn.Module):
         x = x.view(bs, -1)
         x = self._dropout(x)
         x = self._fc(x)
-        return x
+        return feature_map
 
     @classmethod
     def from_name(cls, model_name, override_params=None):
