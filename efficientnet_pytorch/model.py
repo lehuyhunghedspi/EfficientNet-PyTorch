@@ -194,12 +194,13 @@ class EfficientNet(nn.Module):
         # Convolution layers
         x,temp_results = self.extract_features(inputs)
 
+        features_map =x
         # Pooling and final linear layer
         x = self._avg_pooling(x)
         x = x.view(bs, -1)
         x = self._dropout(x)
         x = self._fc(x)
-        return x,temp_results
+        return features_map,temp_results
 
     @classmethod
     def from_name(cls, model_name, override_params=None):
