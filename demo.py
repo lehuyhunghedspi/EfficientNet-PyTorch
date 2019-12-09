@@ -8,6 +8,8 @@ from efficientnet_pytorch import EfficientNet
 net = EfficientNet.from_name('efficientnet-b0')
 img_size=512
 data = torch.zeros((1, 3, img_size, img_size))
-output = net(data)
+output,temp_results = net(data)
 
+for result in temp_results:
+	print(result.shape)
 print(output.shape)
