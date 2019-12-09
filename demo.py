@@ -10,4 +10,4 @@ img_size=512
 data = torch.zeros((1, 3, img_size, img_size))
 output = net(data)
 
-print(output)
+print(output.shape)
